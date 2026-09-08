@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+@import "tailwindcss";
+
+:root {
+  --primary-rose: #e11d48;
+  --primary-rose-hover: #be123c;
+  --accent-gold: #f59e0b;
+  --accent-amber: #d97706;
+  --bg-cream: #fffbe9;
+  --text-dark: #291206;
+  --brand-chocolate: #451a03;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  background-color: #fffdfa;
+  color: #291206;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #fdf2f8;
+}
+::-webkit-scrollbar-thumb {
+  background: #f43f5e;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e11d48;
+}
+
+/* Hero Carousel Custom Styles */
+.hero-slide {
+  transition: opacity 0.7s ease-in-out, transform 0.7s ease-in-out;
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.97);
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+  transform: scale(1);
+  position: relative;
+}
+
+/* Gradient Overlay Glows */
+.bg-baked-gradient {
+  background: linear-gradient(135deg, #fff5f7 0%, #fffbf0 50%, #fdf2f8 100%);
+}
+
+.bg-hero-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(244, 63, 94, 0.15) 0%, rgba(251, 191, 36, 0.08) 50%, rgba(255, 255, 255, 0) 70%);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(244, 114, 182, 0.2);
+}
+
+.glass-card-dark {
+  background: rgba(41, 18, 6, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+/* Animated Shimmer Button */
+.btn-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    60deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 70%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  animation: shimmerEffect 4s infinite;
+}
+
+@keyframes shimmerEffect {
+  0% {
+    transform: rotate(30deg) translateX(-100%);
+  }
+  20%, 100% {
+    transform: rotate(30deg) translateX(100%);
+  }
+}
+
+/* Floating WhatsApp Badge Pulsing */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(34, 197, 94, 0);
+  }
+}
+
+.whatsapp-pulse {
+  animation: pulseGlow 2.5s infinite;
+}
+
+/* Category Filter Active Indicator */
+.cat-btn.active {
+  background-color: #e11d48;
+  color: #ffffff;
+  box-shadow: 0 8px 20px -4px rgba(225, 29, 72, 0.4);
+}
+
+/* Image Zoom on Hover */
+.product-card-img {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.product-card:hover .product-card-img {
+  transform: scale(1.08);
+}
